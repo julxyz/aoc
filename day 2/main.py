@@ -1,9 +1,9 @@
+#I started doing this in C and got very frustrated, that's why some vars are named like they are thank you
+
+
 #read input
-entries = []
-with open("input.txt") as input:
-    entries = input.readlines()
-    for i, entry in enumerate(entries):
-        entries[i] = entry
+with open ('input.txt', 'r') as f:
+    rows = [line for line in f.readlines()]
 
 #fuck shit class
 class Password:
