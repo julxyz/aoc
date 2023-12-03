@@ -50,10 +50,9 @@ func main() {
 		checkErr(err)
 
 		// go template
-		data, err := ioutil.ReadFile("template.txt")
-		checkErr(err)
-		// Write data to dst
-		err = ioutil.WriteFile(fmt.Sprintf("../%02d/main.go", day), data, 0644)
-		checkErr(err)
+		// data, err := ioutil.ReadFile("template.txt")
+		// checkErr(err)
+		// err = ioutil.WriteFile(fmt.Sprintf("../%02d/main.go", day), data, 0644)
+		// checkErr(err)
 	}
 }
