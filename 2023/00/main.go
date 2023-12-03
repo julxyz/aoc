@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -49,10 +50,13 @@ func main() {
 		err = os.WriteFile(path+"/input.txt", body, os.ModePerm)
 		checkErr(err)
 
-		// go template
-		// data, err := ioutil.ReadFile("template.txt")
-		// checkErr(err)
-		// err = ioutil.WriteFile(fmt.Sprintf("../%02d/main.go", day), data, 0644)
-		// checkErr(err)
+		//go template
+		if _, err := os.Stat(fmt.Sprintf("../%02d/main.go", day)); errors.Is(err, os.ErrNotExist) {
+			// path/to/whatever does not exist
+			data, err := ioutil.ReadFile("template")
+			checkErr(err)
+			err = ioutil.WriteFile(fmt.Sprintf("../%02d/main.go", day), data, 0644)
+			checkErr(err)
+		}
 	}
 }

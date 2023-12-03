@@ -1,0 +1,42 @@
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"log"
+	"os"
+)
+
+func checkErr(err error) {
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func main() {
+	// read input
+	readFile, err := os.Open("input.txt")
+	checkErr(err)
+	fileScanner := bufio.NewScanner(readFile)
+	fileScanner.Split(bufio.ScanLines)
+	var input []string
+	for fileScanner.Scan() {
+		input = append(input, fileScanner.Text())
+	}
+	readFile.Close()
+
+	// All
+	for _, line := range input {
+		fmt.Println(line)
+	}
+
+	// First
+	{
+
+	}
+	// Second
+	{
+
+	}
+
+}
